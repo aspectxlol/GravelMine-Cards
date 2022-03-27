@@ -13,7 +13,7 @@ made with typescript and love <3
 
 ## to run
 
-you will need [Node.Js](https://nodejs.org/en/)\
+you will need [Node.Js](https://nodejs.org/en/)
 
 ```bash
 npm i -D tsc

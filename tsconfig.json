@@ -6,6 +6,11 @@
   "esModuleInterop": true, 
   "forceConsistentCasingInFileNames": true, 
   "strict": true, 
-  "skipLibCheck": true 
+  "skipLibCheck": true,
+  "baseUrl": ".", // this must be specified if "paths" is specified.
+  "paths": {
+    "Avatar": ["src/public/assets/Characters/avatar/"],
+    "Skin": ["src/public/assets/Characters/skins/"]
+  }
  }
 }

@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card } from './Cards'
-import path from 'path'
 
 const app:express.Application = express()
 const logger: Signale = new Signale({ scope: 'Cards' })

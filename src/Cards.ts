@@ -77,7 +77,7 @@ export class Card {
         this.username = usernames[Math.floor(Math.random() * usernames.length)]
         this.stats = {
             Health: Math.floor(Math.random() * 100) / 100,
-            Power: Math.floor(Math.random() * 1000) / 100,
+            Power: Math.floor(Math.random() * 100) / 100,
             defense: Math.floor(Math.random() * 100) / 100,
             Rarity: Rarity[Math.floor(Math.random() * Rarity.length)],
         }

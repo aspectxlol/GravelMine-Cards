@@ -3,11 +3,10 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card } from './Cards'
+import path from 'path'
 
 const app:express.Application = express()
 const logger: Signale = new Signale({ scope: 'Cards' })
-
-
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
@@ -19,7 +18,6 @@ app.use('/public', express.static('./src/public'))
 app.get('/Cards', (req:express.Request, res:express.Response) => {
     const character: Card = new Card()
     res.status(200).send(character)
-    console.log(character.calculateChanceOfGettingPerfectCard())
 })
 
 app.get('/credits', (req: express.Request, res: express.Response) => {

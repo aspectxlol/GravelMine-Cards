@@ -77,7 +77,7 @@ app.get('/ship', (req: express.Request, res: express.Response) => {
         'anim1311'
     ]
 
-    res.status(200).send(`${usernames[Math.floor(Math.random() * usernames.length)]} loved ${usernames[Math.floor(Math.random() * usernames.length)]} so much they had sex!`)
+    res.status(200).send(`${usernames[Math.floor(Math.random() * usernames.length)]} loved ${usernames[Math.floor(Math.random() * usernames.length)]} so much!`)
 })
 
 const port = process.env.PORT || 3000

@@ -13,10 +13,12 @@
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.21",
     "@types/signale": "^1.4.4",
+    "@types/uuid": "^8.3.4",
     "body-parser": "^1.19.2",
     "canvas": "^2.9.1",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
-    "signale": "^1.4.0"
+    "signale": "^1.4.0",
+    "uuid": "^8.3.2"
   }
 }

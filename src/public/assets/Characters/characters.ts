@@ -16,14 +16,6 @@ const character: character[] = [
     }
 ] //On Skin Add, push Character to this Array
 
-//Schema 
-// {
-//     username: 'TypeOf Username',
-//     pathToSkin: path.join(__dirname + '/skins/username.png')    
-// }
-
-//Minotar Api to get Skins https://minotar.net/armor/bust/fcb600a/100.png
-
 export function getCharacterByUsername(username: username):character | undefined{
     const foundCharacter: character | undefined = character.find(characters => characters.username == username)
     return foundCharacter

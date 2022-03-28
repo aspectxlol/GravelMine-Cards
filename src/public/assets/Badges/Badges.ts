@@ -18,7 +18,7 @@ const Roles: Roles[] = [
 
 type Badges = {
     Role: Roles,
-    Badge: string
+    PathToBadge: string
 }
 
 const badges: Badges[] = []

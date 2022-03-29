@@ -11,6 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "v17.3.0"
+  },
   "dependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.21",

@@ -1,18 +1,4 @@
-type Rarity = 'Mythic' | 'Legendary' | 'Epic' | 'Rare' | 'Fish' | 'unCommon' | 'Common' | 'Default'
-const Rarity: Rarity[] = [
-    'Mythic',
-    'Legendary',
-    'Epic',
-    'Rare',
-    'Fish',
-    'unCommon',
-    'Common'
-] 
-
-type Backgrounds = {
-    Rarity: Rarity,
-    PathToCardBackground: string
-}
+import { Rarity, Backgrounds } from "src/config/config"
 
 const background: Backgrounds[] = []
 

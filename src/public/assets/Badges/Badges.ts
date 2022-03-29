@@ -1,25 +1,4 @@
-type Roles = 'Owner' | 'Admin' | 'Head Mod' | 'Sr. Mod' | 'Mod' | 'Jr. Mod' | 'Helper' | 'Gren Gang' | 'Mayor' | 'Mvp+' | 'Mvp' | 'Vip+' | 'Default' | 'Muted'
-const Roles: Roles[] = [
-    'Owner',
-    'Admin',
-    'Head Mod',
-    'Sr. Mod',
-    'Mod',
-    'Jr. Mod',
-    'Helper',
-    'Gren Gang',
-    'Mayor',
-    'Mvp+',
-    'Mvp',
-    'Vip+',
-    'Default',
-    'Muted'
-]
-
-type Badges = {
-    Role: Roles,
-    PathToBadge: string
-}
+import { Roles, Badges } from "src/config/config"
 
 const badges: Badges[] = []
 

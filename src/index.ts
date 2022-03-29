@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card } from './Cards'
+import { usernames } from './config/config'
 
 const app:express.Application = express()
 const logger: Signale = new Signale({ scope: 'Cards' })
@@ -45,35 +46,6 @@ app.get('/credits', (req: express.Request, res: express.Response) => {
 })
 
 app.get('/ship', (req: express.Request, res: express.Response) => {
-    type username = 'EmirHantr3' | 'KingDooms' | 'WinLogon' | 'Aspectx' | 'BigGaben' | 'Was_Machin' | 'oCerial' | 'KingLucasThe1st' | 'Addiblue126' | 'iHassani' | 'Cjp' | 'Wtcnn' | 'Lax Majo / Lx MJO' | 'BotiestBot2' | 'KittyClip' | 'BubblesTheKitten' | 'EvilGaming_yt' | 'GRAVELMINE' | 'Pokduc' | 'JuliusE2010' | 'aTree' | 'pgc' | 'Alexisco_YT' | 'TiagoMasterGamer' | 'anim1311'
-    const usernames: username[] = [
-        'EmirHantr3',
-        'KingDooms',
-        'WinLogon',
-        'Aspectx',
-        'BigGaben',
-        'Was_Machin',
-        'oCerial',
-        'KingLucasThe1st',
-        'Addiblue126',
-        'iHassani',
-        'Cjp',
-        'Wtcnn',
-        'Lax Majo / Lx MJO',
-        'BotiestBot2',
-        'KittyClip',
-        'BubblesTheKitten',
-        'EvilGaming_yt',
-        'GRAVELMINE',
-        'Pokduc',
-        'JuliusE2010',
-        'aTree',
-        'pgc',
-        'Alexisco_YT',
-        'TiagoMasterGamer',
-        'anim1311'
-    ]
-
     res.status(200).send(`${usernames[Math.floor(Math.random() * usernames.length)]} loved ${usernames[Math.floor(Math.random() * usernames.length)]} so much!`)
 })
 

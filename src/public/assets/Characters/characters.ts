@@ -1,12 +1,4 @@
-import { PathLike } from 'fs';
-import path from 'path';
-
-type username = 'EmirHantr3' | 'KingDooms' | 'WinLogon' | 'Aspectx' | 'BigGaben' | 'Was_Machin' | 'oCerial' | 'KingLucasThe1st' | 'Addiblue126' | 'iHassani' | 'Cjp' | 'Wtcnn' | 'Lax Majo / Lx MJO' | 'BotiestBot2' | 'KittyClip' | 'BubblesTheKitten' | 'EvilGaming_yt' | 'GRAVELMINE' | 'Pokduc' | 'JuliusE2010' | 'aTree' | 'pgc' | 'Alexisco_YT' | 'TiagoMasterGamer' | 'anim1311'
-type character = {
-    username: username,
-    pathToSkin: PathLike | string,
-    pathToAvatar: PathLike | string
-}
+import { username, character } from 'src/config/config'
 
 const character: character[] = [
     {

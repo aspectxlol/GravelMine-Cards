@@ -1,72 +1,5 @@
 import { v4 } from 'uuid'
-
-type Rarity = 'Mythic' | 'Legendary' | 'Epic' | 'Rare' | 'Fish' | 'unCommon' | 'Common' | 'Default'
-type username = 'EmirHantr3' | 'KingDooms' | 'WinLogon' | 'Aspectx' | 'BigGaben' | 'Was_Machin' | 'oCerial' | 'KingLucasThe1st' | 'Addiblue126' | 'iHassani' | 'Cjp' | 'Wtcnn' | 'Lax Majo / Lx MJO' | 'BotiestBot2' | 'KittyClip' | 'BubblesTheKitten' | 'EvilGaming_yt' | 'GRAVELMINE' | 'Pokduc' | 'JuliusE2010' | 'aTree' | 'pgc' | 'Alexisco_YT' | 'TiagoMasterGamer' | 'anim1311' | 'Once' 
-type Roles = 'Owner' | 'Admin' | 'Head Mod' | 'Sr. Mod' | 'Mod' | 'Jr. Mod' | 'Helper' | 'Gren Gang' | 'Mayor' | 'Mvp+' | 'Mvp' | 'Vip+' | 'Default' | 'Muted'
-
-type Stats = {
-    Power: Number,
-    Health: Number,
-    defense: Number
-    Rarity: Rarity
-}
-
-const usernames: username[] = [
-    'EmirHantr3',
-    'KingDooms',
-    'WinLogon',
-    'Aspectx',
-    'BigGaben',
-    'Was_Machin',
-    'oCerial',
-    'KingLucasThe1st',
-    'Addiblue126',
-    'iHassani',
-    'Cjp',
-    'Wtcnn',
-    'Lax Majo / Lx MJO',
-    'BotiestBot2',
-    'KittyClip',
-    'BubblesTheKitten',
-    'EvilGaming_yt',
-    'GRAVELMINE',
-    'Pokduc',
-    'JuliusE2010',
-    'aTree',
-    'pgc',
-    'Alexisco_YT',
-    'TiagoMasterGamer',
-    'anim1311',
-    'Once'
-]
-
-const Rarity: Rarity[] = [
-    'Mythic',
-    'Legendary',
-    'Epic',
-    'Rare',
-    'Fish',
-    'unCommon',
-    'Common'
-] 
-
-const Roles: Roles[] = [
-    'Owner',
-    'Admin',
-    'Head Mod',
-    'Sr. Mod',
-    'Mod',
-    'Jr. Mod',
-    'Helper',
-    'Gren Gang',
-    'Mayor',
-    'Mvp+',
-    'Mvp',
-    'Vip+',
-    'Default',
-    'Muted'
-]
-
+import { username, Rarity, Roles, Stats, usernames, rarity, roles } from './config/config'
 
 export class Card {
     username: username
@@ -80,9 +13,9 @@ export class Card {
             Health: Math.floor(Math.random() * 100) / 100,
             Power: Math.floor(Math.random() * 100) / 100,
             defense: Math.floor(Math.random() * 100) / 100,
-            Rarity: Rarity[Math.floor(Math.random() * Rarity.length)],
+            Rarity: rarity[Math.floor(Math.random() * rarity.length)],
         }
-        this.roles = Roles[Math.floor(Math.random() * Roles.length)]
+        this.roles = roles[Math.floor(Math.random() * roles.length)]
         this.CardId = v4()
     }
 
@@ -109,6 +42,6 @@ export class Card {
     }   
 
     calculateChanceOfGettingPerfectCard() {
-        return usernames.length * 100 * 100 * 100 * Rarity.length * Roles.length
+        return usernames.length * 100 * 100 * 100 * rarity.length * roles.length
     }
 }

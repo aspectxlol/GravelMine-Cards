@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
-import { Card } from './Cards'
+import { Card, CardbyUsername } from './Cards'
 import { usernames } from './config/config'
 
 const app:express.Application = express()
@@ -20,12 +20,49 @@ app.get('/Cards', (req:express.Request, res:express.Response) => {
     res.status(200).send(character)
 })
 
+app.get('/Cards/:username', (req:express.Request, res:express.Response) => {
+    const allowedUsernames: string[] = [
+        'EmirHantr3',
+        'KingDooms',
+        'WinLogon',
+        'Aspectx',
+        'BigGaben',
+        'Was_Machin',
+        'oCerial',
+        'KingLucasThe1st',
+        'Addiblue126',
+        'iHassani',
+        'Cjp',
+        'Wtcnn',
+        'Lax Majo / Lx MJO',
+        'BotiestBot2',
+        'KittyClip',
+        'BubblesTheKitten',
+        'EvilGaming_yt',
+        'GRAVELMINE',
+        'Pokduc',
+        'JuliusE2010',
+        'aTree',
+        'pgc',
+        'Alexisco_YT',
+        'TiagoMasterGamer',
+        'anim1311',
+        'Once'
+    ]
+
+    if(allowedUsernames.includes(req.params.username)) {
+        const card = new CardbyUsername(req.params.username)
+        res.status(200).send(card)
+    } else(
+        res.status(404).send({
+            message: 'Cannot Create a Card with the username' + req.params.username,
+            allowedUsernames: allowedUsernames
+        })
+    )
+})
+
 app.get('/credits', (req: express.Request, res: express.Response) => {
     res.status(200).send([
-        {
-            name: 'Vxnesity / KittyClip',
-            contribution: 'art'
-        },
         {
             name: 'oCerial@AspectxDev',
             contribution: 'Card Background'

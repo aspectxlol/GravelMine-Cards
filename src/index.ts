@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card, CardbyUsername } from './Cards'
-import { usernames } from './config/config'
+import { usernames,Domain } from './config/config'
 
 const app:express.Application = express()
 const logger: Signale = new Signale({ scope: 'Cards' })
@@ -12,8 +12,23 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 app.set('views', './src/views')
-app.use('/public', express.static('./src/public'))
+app.use('/public', express.static(__dirname + '/public'));
 
+
+
+app.get('/', (req: express.Request, res: express.Response) => {
+    res.status(200).send({
+        title: 'Gravelmine Cards',
+        subTitle: 'A Collectible NFT Trading Battling Card Game Made for gravelmine',
+        message: 'Welcome this is Gravelmine Cards, an api made by a small team of young developers',
+        Routes: {
+            Api: `https://${Domain}/Cards`,
+            Ship: `https://${Domain}/ship`,
+            credits: `https://${Domain}/credits`,
+            JoinAspectxDev: `https://${Domain}/join/AspectxDevTeam`
+        }
+})
+})
 
 app.get('/Cards', (req:express.Request, res:express.Response) => {
     const character: Card = new Card()

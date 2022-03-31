@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card, CardbyUsername } from './Cards'
-import { usernames,Domain } from './config/config'
+import { usernames, Domain } from './config/config'
 
 const app:express.Application = express()
 const logger: Signale = new Signale({ scope: 'Cards' })
@@ -69,9 +69,10 @@ app.get('/Cards/:username', (req:express.Request, res:express.Response) => {
         const card = new CardbyUsername(req.params.username)
         res.status(200).send(card)
     } else(
-        res.status(404).send({
+        res.status(200).send({
             message: 'Cannot Create a Card with the username' + req.params.username,
-            allowedUsernames: allowedUsernames
+            allowedUsernames: allowedUsernames,
+            ErrCode: 404
         })
     )
 })

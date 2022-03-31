@@ -1,5 +1,5 @@
 import { v4 } from 'uuid'
-import { username, Rarity, Roles, Stats, usernames, rarity, roles } from './config/config'
+import { username, Roles, Stats, usernames, rarity, roles } from './config/config'
 
 export class Card {
     username: username

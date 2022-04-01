@@ -62,7 +62,10 @@ app.get('/Cards/:username', (req:express.Request, res:express.Response) => {
         'Alexisco_YT',
         'TiagoMasterGamer',
         'anim1311',
-        'Once'
+        'Once',
+        'Beats',
+        'Cube',
+        'Bridget'
     ]
 
     if(allowedUsernames.includes(req.params.username)) {

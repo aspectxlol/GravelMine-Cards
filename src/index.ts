@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card, CardbyUsername } from './Cards'
-import { usernames, Domain } from './config/config'
+import { usernames, Domain, boys, girls } from './config/config'
 
 const app:express.Application = express()
 const logger: Signale = new Signale({ scope: 'Cards' })
@@ -106,7 +106,13 @@ app.get('/credits', (req: express.Request, res: express.Response) => {
 })
 
 app.get('/ship', (req: express.Request, res: express.Response) => {
-    res.status(200).send(`${usernames[Math.floor(Math.random() * usernames.length)]} loved ${usernames[Math.floor(Math.random() * usernames.length)]} so much!`)
+    const boy = boys[Math.floor(Math.random() * boys.length)]
+    const girl = girls[Math.floor(Math.random() * girls.length)]
+    res.send({
+        boy: boy,
+        girl: girl,
+        message: `${boy} loved ${girl} so much, They Had sex!`
+    })
 })
 
 app.get('/join/AspectxDevTeam', (req: express.Request, res:express.Response) => {

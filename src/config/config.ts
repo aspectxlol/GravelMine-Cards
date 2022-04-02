@@ -59,6 +59,41 @@ const usernames: username[] = [
     'Bridget'
 ]
 
+const boys: username[] = [
+    'EmirHantr3',
+    'KingDooms',
+    'Aspectx',
+    'BigGaben',
+    'Was_Machin',
+    'oCerial',
+    'KingLucasThe1st',
+    'iHassani',
+    'Cjp',
+    'Wtcnn',
+    'Lax Majo / Lx MJO',
+    'BotiestBot2',
+    'EvilGaming_yt',
+    'GRAVELMINE',
+    'Pokduc',
+    'JuliusE2010',
+    'aTree',
+    'pgc',
+    'Alexisco_YT',
+    'TiagoMasterGamer',
+    'Once',
+    'Cube'
+]
+
+const girls: username[] = [
+    'WinLogon',
+    'Addiblue126',
+    'KittyClip',
+    'BubblesTheKitten',
+    'anim1311',
+    'Beats',
+    'Bridget'
+]
+
 const rarity: Rarity[] = [
     'Mythic',
     'Legendary',
@@ -102,5 +137,7 @@ export {
     usernames,
     rarity,
     roles,
-    Domain
+    Domain,
+    boys,
+    girls
 }

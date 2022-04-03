@@ -16,7 +16,7 @@ made with typescript and love <3
 you will need [Node.Js](https://nodejs.org/en/)
 
 ```bash
-npm i -D tsc
+npm i -D typescript
 ```
 
 to install ts compiler
@@ -25,10 +25,15 @@ to install ts compiler
 npm i -D ts-node
 ```
 
-to install ts-node
+Optional ts-node
 
 ```bash
 npm i
+```
+
+Optional nodemon
+```bash
+Nom i -d nodemon
 ```
 
 to install required packages
@@ -44,6 +49,17 @@ tsc
 ```
 
 and the output should be in the dist folder
+
+## to run in developer mode
+```bash
+Nodemon src/index.ts
+```
+
+To run the application in production
+PLEASE DO THIS AFTER BUILDING 
+```bash
+Node dist/index.js
+```
 
 ## Contributing
 

@@ -28,7 +28,7 @@ npm i -D ts-node
 Optional ts-node
 
 ```bash
-npm i
+npm i ts-node
 ```
 
 Optional nodemon

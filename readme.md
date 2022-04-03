@@ -5,15 +5,17 @@
 [![GitHub stars](https://badgen.net/github/stars/aspectxlol/Gravelmine-cards)](https://GitHub.com/aspectxlol/Gravelmine-cards/)
 [![GitHub commits](https://badgen.net/github/commits/aspectxlol/Gravelmine-cards)](https://GitHub.com/aspectxlol/Gravelmine-cards/commit/)
 [![GitHub watchers](https://badgen.net/github/watchers/aspectxlol/Gravelmine-cards)](https://GitHub.com/aspectxlol/Gravelmine-cards/watchers/)
-[![GitLab last commit](https://badgen.net/github/last-commit/aspectxlol/gravelmine-cards)](https://github.com/aspectxlol/Gravelmine-cards/commits)
+[![Github last commit](https://badgen.net/github/last-commit/aspectxlol/gravelmine-cards)](https://github.com/aspectxlol/Gravelmine-cards/commits)
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/8XQbUF5twR)
 
 A simple Game for Simple Friends\
 made with typescript and love <3
 
-## to run
+## Setup & installing packages
 
-you will need [Node.Js](https://nodejs.org/en/)
+you will need [Node.Js](https://nodejs.org/en/) version 17
+
+You will also need Npm (node package manager)
 
 ```bash
 npm i -D typescript
@@ -24,18 +26,16 @@ to install ts compiler
 ```bash
 npm i -D ts-node
 ```
-
-Optional ts-node
+To install Optional package ts-node
 
 ```bash
-npm i ts-node
+npm i nodemon
 ```
+To install Optional package nodemon
 
-Optional nodemon
 ```bash
-Nom i -d nodemon
+Nom i 
 ```
-
 to install required packages
 
 ## to build

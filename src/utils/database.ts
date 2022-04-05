@@ -1,10 +1,10 @@
 import mongoose, { Schema, model } from "mongoose";
-import { logger } from "src/index";
+import { logger } from "../index";
 import { Card, Owner } from "src/config/config";
 
 const uri:any = process.env.MONGO_URI
 
-mongoose.connect(uri, (err) => {
+mongoose.connect(`${uri}`, (err) => {
     if(err) throw err;
     logger.info('Connected to the database')
 })

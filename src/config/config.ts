@@ -27,6 +27,18 @@ type character = {
     pathToAvatar: string
 }
 
+type Card = {
+    username: username,
+    stats: Stats,
+    roles: Roles,
+    CardId: String
+}
+
+type Owner = {
+    username: string,
+    userId: Number
+}
+
 const usernames: username[] = [
     'EmirHantr3',
     'KingDooms',
@@ -134,6 +146,8 @@ export {
     Backgrounds,
     Badges,
     character,
+    Card,
+    Owner,
     usernames,
     rarity,
     roles,

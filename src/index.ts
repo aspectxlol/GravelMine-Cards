@@ -3,10 +3,11 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card, CardbyUsername } from './Cards'
-import { usernames, Domain, boys, girls } from './config/config'
+import { usernames, Domain, boys, girls, Owner } from './config/config'
+import { postCard } from './utils/database';
 
 const app:express.Application = express()
-const logger: Signale = new Signale({ scope: 'Cards' })
+export let logger: Signale = new Signale({ scope: 'Cards' })
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
@@ -32,7 +33,22 @@ app.get('/', (req: express.Request, res: express.Response) => {
 
 app.get('/Cards', (req:express.Request, res:express.Response) => {
     const character: Card = new Card()
+    const owner: Owner = {
+        username: 'Not Registered',
+        userId: 0
+    }
+    postCard(character, owner)
     res.status(200).send(character)
+})
+
+app.post('/Cards', (req:express.Request, res:express.Response) => {
+    const character: Card = new Card()
+    const owner: Owner = {
+        username: req.body.username,
+        userId: req.body.userId
+    }
+    res.status(200).send(character)
+    postCard(character, owner)
 })
 
 app.get('/Cards/:username', (req:express.Request, res:express.Response) => {
@@ -136,3 +152,4 @@ const port = process.env.PORT || 3000
 app.listen(port, () => {
     logger.start(`Server Started!`, port)    
 })
+

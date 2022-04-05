@@ -4,7 +4,7 @@ import 'ejs';
 import { Signale } from 'signale';
 import { Card, CardbyUsername } from './Cards'
 import { usernames, Domain, boys, girls, Owner, username } from './config/config'
-import { postCard } from './utils/database';
+import { getCardByCardId, postCard } from './utils/database';
 
 const app:express.Application = express()
 export let logger: Signale = new Signale({ scope: 'Cards' })
@@ -149,6 +149,12 @@ app.post('/Cards/:username', (req:express.Request, res:express.Response) => {
         })
     )
 })
+
+app.get('/getCards/:CardId', (req:express.Request, res:express.Response) => {
+    res.status(200).send(getCardByCardId(req.params.CardId))
+})
+
+
 
 app.get('/credits', (req: express.Request, res: express.Response) => {
     res.status(200).send([

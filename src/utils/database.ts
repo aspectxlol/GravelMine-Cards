@@ -50,3 +50,14 @@ export function postCard(card: Card, owner: Owner) {
 
     cardItem.save()
 }
+
+export function getCardByCardId(CardId: string): any  {
+    CardModel.find({ Card: { CardId: CardId } }, (err, data) => {
+        if(err) throw err
+        if(!data.length) {
+            return 'no data found'
+        } else if(data.length) {
+            return data
+        }
+    })
+}

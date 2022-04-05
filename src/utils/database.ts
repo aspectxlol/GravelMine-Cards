@@ -54,7 +54,7 @@ export function postCard(card: Card, owner: Owner) {
 export function getCardByCardId(CardId: string): any  {
     CardModel.find({ Card: { CardId: CardId } }, (err, data) => {
         if(err) throw err
-        if(!data.length) {
+        if(!data) {
             return {
                 message: 'no data found',
                 code: 404

@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card, CardbyUsername } from './Cards'
-import { usernames, Domain, boys, girls, Owner } from './config/config'
+import { usernames, Domain, boys, girls, Owner, username } from './config/config'
 import { postCard } from './utils/database';
 
 const app:express.Application = express()
@@ -37,8 +37,8 @@ app.get('/Cards', (req:express.Request, res:express.Response) => {
         username: 'Not Registered',
         userId: 0
     }
-    postCard(character, owner)
     res.status(200).send(character)
+    postCard(character, owner)
 })
 
 app.post('/Cards', (req:express.Request, res:express.Response) => {
@@ -85,8 +85,62 @@ app.get('/Cards/:username', (req:express.Request, res:express.Response) => {
     ]
 
     if(allowedUsernames.includes(req.params.username)) {
-        const card = new CardbyUsername(req.params.username)
+        const owner: Owner = {
+            username: 'Not Registered',
+            userId: 0
+        }
+        const card: any = new CardbyUsername(req.params.username)
         res.status(200).send(card)
+        postCard(card, owner)
+    } else(
+        res.status(200).send({
+            message: 'Cannot Create a Card with the username' + req.params.username,
+            allowedUsernames: allowedUsernames,
+            ErrCode: 404
+        })
+    )
+})
+
+app.post('/Cards/:username', (req:express.Request, res:express.Response) => {
+    const allowedUsernames: string[] = [
+        'EmirHantr3',
+        'KingDooms',
+        'WinLogon',
+        'Aspectx',
+        'BigGaben',
+        'Was_Machin',
+        'oCerial',
+        'KingLucasThe1st',
+        'Addiblue126',
+        'iHassani',
+        'Cjp',
+        'Wtcnn',
+        'Lax Majo / Lx MJO',
+        'BotiestBot2',
+        'KittyClip',
+        'BubblesTheKitten',
+        'EvilGaming_yt',
+        'GRAVELMINE',
+        'Pokduc',
+        'JuliusE2010',
+        'aTree',
+        'pgc',
+        'Alexisco_YT',
+        'TiagoMasterGamer',
+        'anim1311',
+        'Once',
+        'Beats',
+        'Cube',
+        'Bridget'
+    ]
+    if(allowedUsernames.includes(req.params.username)) {
+        const owner: Owner = {
+            username: req.body.username,
+            userId: req.body.userId
+        }
+        const card:any = new CardbyUsername(req.params.username)
+        res.status(200).send(card)
+        postCard(card, owner)
     } else(
         res.status(200).send({
             message: 'Cannot Create a Card with the username' + req.params.username,

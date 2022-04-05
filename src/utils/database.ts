@@ -60,7 +60,7 @@ export function getCardByCardId(CardId: string): any  {
                 code: 404
             }
         } else if(data.length) {
-            return data
+            return console.log(data)
         }
     })
 }

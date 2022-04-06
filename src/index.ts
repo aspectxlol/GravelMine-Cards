@@ -4,7 +4,7 @@ import 'ejs';
 import { Signale } from 'signale';
 import { Card, CardbyUsername } from './Cards'
 import { usernames, Domain, boys, girls, Owner, username } from './config/config'
-import { getCardsByCardId } from './utils/database';
+import { getCardsByCardId, getCardsByOwnerId, getCardsByOwnerUsername, postCard } from './utils/database';
 
 const app:express.Application = express()
 export let logger: Signale = new Signale({ scope: 'Cards' })
@@ -150,11 +150,20 @@ app.post('/Cards/:username', (req:express.Request, res:express.Response) => {
     )
 })
 
-app.get('/getCards/:CardId', (req:express.Request, res:express.Response) => {
-    res.status(200).send(getCardsByCardId(req.params.CardId))
+app.get('/getCard/id/:CardId', async (req:express.Request, res:express.Response) => {
+    let data = await getCardsByCardId(req.params.CardId);
+    res.status(200).json(data)
 })
 
+app.get('/getCard/owner/username/:username', async (req:express.Request, res:express.Response) => {
+    let data = await getCardsByOwnerUsername(req.params.username);
+    res.status(200).json(data)
+})
 
+app.get('/getCard/owner/id/:id', async (req:express.Request, res:express.Response) => {
+    let data = await getCardsByOwnerId(req.params.id);
+    res.status(200).json(data)
+})
 
 app.get('/credits', (req: express.Request, res: express.Response) => {
     res.status(200).send([
@@ -200,7 +209,11 @@ app.get('/join/AspectxDevTeam', (req: express.Request, res:express.Response) => 
     })
 })
 
-app.use((req, res, next) => {
+app.get('/RickRoll', (req: express.Request, res: express.Response) => {
+    res.redirect('https://youtu.be/dQw4w9WgXcQ')
+})
+
+app.use((req: express.Request, res: express.Response, next) => {
     res.status(404).send({
         messsage: 'Not Found',
         StatusCode: 404

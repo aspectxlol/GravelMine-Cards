@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose"
+import { Card } from 'src/Cards';
 
 const cardSchema: Schema = new Schema({
     owner: {
@@ -18,4 +19,4 @@ const cardSchema: Schema = new Schema({
     }
 })
 
-export default model('Card', cardSchema)
+export default model('card', cardSchema)

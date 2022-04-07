@@ -3,19 +3,17 @@ import bodyParser from 'body-parser';
 import 'ejs';
 import { Signale } from 'signale';
 import { Card, CardbyUsername } from './Cards'
-import { usernames, Domain, boys, girls, Owner, username } from './config/config'
+import { Domain, boys, girls, Owner } from './config/config'
 import { getCardsByCardId, getCardsByOwnerId, getCardsByOwnerUsername, postCard } from './utils/database';
 
 const app:express.Application = express()
-export let logger: Signale = new Signale({ scope: 'Cards' })
+export const logger: Signale = new Signale({ scope: 'GM Cards' })
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 app.set('views', './src/views')
 app.use('/public', express.static(__dirname + '/public'));
-
-
 
 app.get('/', (req: express.Request, res: express.Response) => {
     res.status(200).send({
@@ -31,7 +29,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
 })
 })
 
-app.get('/Cards', (req:express.Request, res:express.Response) => {
+app.get('/Cards', async (req:express.Request, res:express.Response) => {
     const character: Card = new Card()
     const owner: Owner = {
         username: 'Not Registered',
@@ -41,7 +39,7 @@ app.get('/Cards', (req:express.Request, res:express.Response) => {
     postCard(character, owner)
 })
 
-app.post('/Cards', (req:express.Request, res:express.Response) => {
+app.post('/Cards', async (req:express.Request, res:express.Response) => {
     const character: Card = new Card()
     const owner: Owner = {
         username: req.body.username,
@@ -51,7 +49,7 @@ app.post('/Cards', (req:express.Request, res:express.Response) => {
     postCard(character, owner)
 })
 
-app.get('/Cards/:username', (req:express.Request, res:express.Response) => {
+app.get('/Cards/:username', async (req:express.Request, res:express.Response) => {
     const allowedUsernames: string[] = [
         'EmirHantr3',
         'KingDooms',
@@ -101,7 +99,7 @@ app.get('/Cards/:username', (req:express.Request, res:express.Response) => {
     )
 })
 
-app.post('/Cards/:username', (req:express.Request, res:express.Response) => {
+app.post('/Cards/:username', async (req:express.Request, res:express.Response) => {
     const allowedUsernames: string[] = [
         'EmirHantr3',
         'KingDooms',
@@ -150,22 +148,22 @@ app.post('/Cards/:username', (req:express.Request, res:express.Response) => {
     )
 })
 
-app.get('/getCard/id/:CardId', async (req:express.Request, res:express.Response) => {
+app.get('/getCard/cardId/:CardId', async (req:express.Request, res:express.Response) => {
     let data = await getCardsByCardId(req.params.CardId);
     res.status(200).json(data)
 })
 
-app.get('/getCard/owner/username/:username', async (req:express.Request, res:express.Response) => {
+app.get('/getCard/Owner/username/:username', async (req:express.Request, res:express.Response) => {
     let data = await getCardsByOwnerUsername(req.params.username);
     res.status(200).json(data)
 })
 
-app.get('/getCard/owner/id/:id', async (req:express.Request, res:express.Response) => {
+app.get('/getCard/Owner/id/:id', async (req:express.Request, res:express.Response) => {
     let data = await getCardsByOwnerId(req.params.id);
     res.status(200).json(data)
 })
 
-app.get('/credits', (req: express.Request, res: express.Response) => {
+app.get('/credits', async (req: express.Request, res: express.Response) => {
     res.status(200).send([
         {
             name: 'oCerial@AspectxDev',
@@ -190,7 +188,7 @@ app.get('/credits', (req: express.Request, res: express.Response) => {
     ])
 })
 
-app.get('/ship', (req: express.Request, res: express.Response) => {
+app.get('/ship', async (req: express.Request, res: express.Response) => {
     const boy = boys[Math.floor(Math.random() * boys.length)]
     const girl = girls[Math.floor(Math.random() * girls.length)]
     res.send({
@@ -200,7 +198,7 @@ app.get('/ship', (req: express.Request, res: express.Response) => {
     })
 })
 
-app.get('/join/AspectxDevTeam', (req: express.Request, res:express.Response) => {
+app.get('/join/AspectxDevTeam', async (req: express.Request, res:express.Response) => {
     res.status(200).send({
         message: 'We are Currently Looking for staff team',
         StaffTeamDomain: '@AspectxDev',
@@ -209,7 +207,7 @@ app.get('/join/AspectxDevTeam', (req: express.Request, res:express.Response) => 
     })
 })
 
-app.get('/RickRoll', (req: express.Request, res: express.Response) => {
+app.get('/RickRoll', async (req: express.Request, res: express.Response) => {
     res.redirect('https://youtu.be/dQw4w9WgXcQ')
 })
 

@@ -1,4 +1,4 @@
-import mongoose, { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 import { logger } from "../index";
 import {  Card, Owner } from "src/config/config";
 import cardModel from "./Models/card";
@@ -10,7 +10,7 @@ mongoose.connect(`${uri}`, (err) => {
     logger.info('Connected to the database')
 })
 
-export function postCard(card: Card, owner: Owner) {
+export async function postCard(card: Card, owner: Owner) {
    const cardItem = new cardModel({
         owner: {
             username: owner.username,
@@ -29,7 +29,7 @@ export function postCard(card: Card, owner: Owner) {
         }
     })
 
-    cardItem.save()
+    await cardItem.save()
 }
 
 export async function getCardsByCardId(CardId: string) {

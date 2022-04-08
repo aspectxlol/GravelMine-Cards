@@ -1,5 +1,4 @@
-import { Schema, model } from "mongoose"
-import { Card } from 'src/Cards';
+import { Schema, model } from "mongoose";
 
 const cardSchema: Schema = new Schema({
     owner: {

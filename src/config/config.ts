@@ -39,6 +39,12 @@ type Owner = {
     userId: Number
 }
 
+type User = {
+    username: String,
+    userId: Number,
+    avatar: String
+}
+
 const usernames: username[] = [
     'EmirHantr3',
     'KingDooms',
@@ -166,6 +172,7 @@ export {
     character,
     Card,
     Owner,
+    User,
     usernames,
     rarity,
     roles,

@@ -3,7 +3,8 @@ import { logger } from "../index";
 import {  Card, Owner } from "src/config/config";
 import cardModel from "./Models/card";
 
-const uri:any = process.env.MONGO_URI
+// const uri:any = process.env.MONGO_URI
+const uri:any = 'mongodb+srv://aspectx:Louie271108@cluster0.yabco.mongodb.net/GMC?retryWrites=true&w=majority'
 
 mongoose.connect(`${uri}`, (err) => {
     if(err) throw err;

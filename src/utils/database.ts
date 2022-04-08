@@ -1,13 +1,11 @@
-import { connect } from "mongoose";
+import mongoose from "mongoose";
 import { logger } from "../index";
-import {  Card, Owner, User } from "src/config/config";
+import {  Card, Owner } from "src/config/config";
 import cardModel from "./Models/card";
-import userModel from "./Models/user";
-import { v4 } from "uuid";
 
 const uri:any = process.env.MONGO_URI
 
-connect(`${uri}`, (err) => {
+mongoose.connect(`${uri}`, (err) => {
     if(err) throw err;
     logger.info('Connected to the database')
 })
@@ -68,17 +66,4 @@ export async function getCardsByOwnerId(id: string) {
     }else {
         return founditems
     }
-}
-
-export async function postUser(user: User) {
-    const userItem = new userModel({
-        user: {
-            username: user.username,
-            userId: user.userId,
-            GMCId: v4(),
-            avatar: user.avatar
-        }
-    })
-
-    await userItem.save()
 }

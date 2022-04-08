@@ -5,8 +5,7 @@ import cardModel from "./Models/card";
 import userModel from "./Models/user";
 import { v4 } from "uuid";
 
-// const uri:any = process.env.MONGO_URI
-const uri:any = 'mongodb+srv://aspectx:Louie271108@cluster0.yabco.mongodb.net/GMC?retryWrites=true&w=majority'
+const uri:any = process.env.MONGO_URI
 
 connect(`${uri}`, (err) => {
     if(err) throw err;
